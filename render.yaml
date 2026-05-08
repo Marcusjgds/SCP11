@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: discord-ticket-bot
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: TOKEN
+        sync: false
+      - key: CLIENT_ID
+        sync: false
+    disk:
+      name: bot-data
+      mountPath: /data
+      sizeGB: 1
